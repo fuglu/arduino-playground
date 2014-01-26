@@ -10,9 +10,12 @@ public:
 	void initialize();
 	void on();
 	void off();
+	void blink(int interval);
 
 private:
 	int pin;
+	int state;
+	long unsigned int current_millis;
 };
 
 #endif
