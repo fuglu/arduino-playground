@@ -1,7 +1,7 @@
 #include <Button.h>
 #include <LED.h>
 
-LED led = LED(4);
+LED led = LED(2);
 Button btn = Button(12);
 
 void setup()
@@ -12,10 +12,9 @@ void setup()
 
 void loop()
 {
-	if (btn.isPressed()) {
+	if (btn.isPressed())
 		led.on();
-	} else {
+	else
 		led.off();
-	}
 }
 
