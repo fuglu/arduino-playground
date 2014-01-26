@@ -37,11 +37,19 @@ void LED::off()
 	state = LOW;
 }
 
+void LED::toggle()
+{
+	if (state == LOW)
+		on();
+	else
+		off();
+}
+
 void LED::blink(int interval)
 {
 	int now = millis();
 
-	if(now - current_millis > interval) {
+	if((now - current_millis) > interval) {
 		current_millis = now;
 
 		if (state == LOW)

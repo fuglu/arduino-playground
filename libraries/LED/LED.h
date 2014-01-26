@@ -10,6 +10,7 @@ public:
 	void initialize();
 	void on();
 	void off();
+	void toggle();
 	void blink(int interval);
 
 private:
