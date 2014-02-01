@@ -18,7 +18,8 @@ void setup()
 
 void loop()
 {
-	rgb.green();
+	rgb.off();
+
 	if (btn.isPressed()) {
 		rgb.red();
 		for (int i = 0; i < sizeof(leds)/sizeof(LED); i++) {
@@ -26,6 +27,16 @@ void loop()
 			delay(500);
 			leds[i].off();
 		}
+		rgb.green();
+		delay(400);
+		rgb.off();
+		delay(400);
+		rgb.green();
+		delay(400);
+		rgb.off();
+		delay(400);
+		rgb.green();
+		delay(400);
 	} else {
 		for (int i = 0; i < sizeof(leds)/sizeof(LED); i++) {
 			leds[i].off();
