@@ -2,7 +2,7 @@
 
 const int BLINK_INTERVAL = 2000;
 
-RGB led = RGB(9, 10, 11);
+RGB led = RGB(10, 11, 12);
 
 void setup()
 {
