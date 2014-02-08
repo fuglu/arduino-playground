@@ -1,16 +1,16 @@
 #include <Arduino.h>
 #include <Debug.h>
-#include "RGB.h"
+#include "RGBC.h"
 
 
-RGB::RGB(int red_pin, int green_pin, int blue_pin)
+RGBC::RGBC(int red_pin, int green_pin, int blue_pin)
 	: red_pin(red_pin), green_pin(green_pin), blue_pin(blue_pin)
 {
 	state = LOW;
 	current_millis = millis();
 }
 
-RGB::~RGB()
+RGBC::~RGBC()
 {
 	int pins[] = {red_pin, green_pin, blue_pin};
 
@@ -23,7 +23,7 @@ RGB::~RGB()
 	}
 }
 
-void RGB::initialize()
+void RGBC::initialize()
 {
 	pinMode(red_pin, OUTPUT);
 	pinMode(green_pin, OUTPUT);
@@ -31,7 +31,7 @@ void RGB::initialize()
 	state = LOW;
 }
 
-void RGB::on()
+void RGBC::on()
 {
 	digitalWrite(red_pin, HIGH);
 	digitalWrite(green_pin, LOW);
@@ -39,7 +39,7 @@ void RGB::on()
 	state = HIGH;
 }
 
-void RGB::off()
+void RGBC::off()
 {
 	digitalWrite(red_pin, LOW);
 	digitalWrite(green_pin, LOW);
@@ -47,7 +47,7 @@ void RGB::off()
 	state = LOW;
 }
 
-void RGB::red()
+void RGBC::red()
 {
 	digitalWrite(red_pin, HIGH);
 	digitalWrite(green_pin, LOW);
@@ -55,7 +55,7 @@ void RGB::red()
 	state = HIGH;
 }
 
-void RGB::green()
+void RGBC::green()
 {
 	digitalWrite(red_pin, LOW);
 	digitalWrite(green_pin, HIGH);
@@ -63,7 +63,7 @@ void RGB::green()
 	state = HIGH;
 }
 
-void RGB::blue()
+void RGBC::blue()
 {
 	digitalWrite(red_pin, LOW);
 	digitalWrite(green_pin, LOW);
@@ -71,7 +71,7 @@ void RGB::blue()
 	state = HIGH;
 }
 
-void RGB::yellow()
+void RGBC::yellow()
 {
 	digitalWrite(red_pin, HIGH);
 	digitalWrite(green_pin, HIGH);
@@ -79,7 +79,7 @@ void RGB::yellow()
 	state = HIGH;
 }
 
-void RGB::cyan()
+void RGBC::cyan()
 {
 	digitalWrite(red_pin, LOW);
 	digitalWrite(green_pin, HIGH);
@@ -87,7 +87,7 @@ void RGB::cyan()
 	state = HIGH;
 }
 
-void RGB::purple()
+void RGBC::purple()
 {
 	digitalWrite(red_pin, HIGH);
 	digitalWrite(green_pin, LOW);
@@ -95,7 +95,7 @@ void RGB::purple()
 	state = HIGH;
 }
 
-void RGB::white()
+void RGBC::white()
 {
 	digitalWrite(red_pin, HIGH);
 	digitalWrite(green_pin, HIGH);
@@ -103,42 +103,42 @@ void RGB::white()
 	state = HIGH;
 }
 
-void RGB::blink_red(int interval)
+void RGBC::blink_red(int interval)
 {
-	blink(&RGB::red, interval);
+	blink(&RGBC::red, interval);
 }
 
-void RGB::blink_green(int interval)
+void RGBC::blink_green(int interval)
 {
-	blink(&RGB::green, interval);
+	blink(&RGBC::green, interval);
 }
 
-void RGB::blink_blue(int interval)
+void RGBC::blink_blue(int interval)
 {
-	blink(&RGB::blue, interval);
+	blink(&RGBC::blue, interval);
 }
 
-void RGB::blink_yellow(int interval)
+void RGBC::blink_yellow(int interval)
 {
-	blink(&RGB::yellow, interval);
+	blink(&RGBC::yellow, interval);
 }
 
-void RGB::blink_cyan(int interval)
+void RGBC::blink_cyan(int interval)
 {
-	blink(&RGB::cyan, interval);
+	blink(&RGBC::cyan, interval);
 }
 
-void RGB::blink_purple(int interval)
+void RGBC::blink_purple(int interval)
 {
-	blink(&RGB::purple, interval);
+	blink(&RGBC::purple, interval);
 }
 
-void RGB::blink_white(int interval)
+void RGBC::blink_white(int interval)
 {
-	blink(&RGB::white, interval);
+	blink(&RGBC::white, interval);
 }
 
-void RGB::blink(void (RGB::*on_func)(), int interval)
+void RGBC::blink(void (RGBC::*on_func)(), int interval)
 {
 	int now = millis();
 

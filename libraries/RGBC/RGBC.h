@@ -1,11 +1,11 @@
-#ifndef RGB_h
-#define RGB_h
+#ifndef RGBC_h
+#define RGBC_h
 
 
-class RGB {
+class RGBC {
 public:
-	RGB (int red_pin, int green_pin, int blue_pin);
-	~RGB ();
+	RGBC (int red_pin, int green_pin, int blue_pin);
+	~RGBC ();
 
 	void initialize();
 	void on();
@@ -33,7 +33,7 @@ private:
 	int state;
 	long unsigned int current_millis;
 
-	void blink(void (RGB::*on)(), int interval);
+	void blink(void (RGBC::*on)(), int interval);
 };
 
 #endif
