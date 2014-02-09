@@ -28,6 +28,9 @@ void RGBA::initialize()
 	pinMode(red_pin, OUTPUT);
 	pinMode(green_pin, OUTPUT);
 	pinMode(blue_pin, OUTPUT);
+	digitalWrite(red_pin, HIGH);
+	digitalWrite(green_pin, HIGH);
+	digitalWrite(blue_pin, HIGH);
 	state = LOW;
 }
 
