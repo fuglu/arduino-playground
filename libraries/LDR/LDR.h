@@ -8,6 +8,8 @@ public:
 	~LDR ();
 
 	int lightlevel();
+	bool day();
+	bool night();
 
 private:
 	int ldr_pin;
